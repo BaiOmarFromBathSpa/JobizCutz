@@ -1,0 +1,50 @@
+:root {
+    --CursorSize: 34px;
+    --CursorTop: 0;
+    --CursorLeft: 0;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;  
+    min-width: 100vw;
+    min-width: 100svw;
+}
+
+* {
+    cursor: none;
+}
+
+#Cursor{
+    position: fixed;
+    width: var(--CursorSize);
+    aspect-ratio: 1;
+    
+    border: 4px solid #66CED6;
+    outline: 2px solid #232323;
+    border-radius: 50%;
+
+    top: calc(var(--CursorTop) - var(--CursorSize)/2);
+    left: calc(var(--CursorLeft) - var(--CursorSize)/2);
+
+    transition: 100ms ease-out;
+    z-index: 10000;
+    pointer-events: none;
+}
+#Cursor::after {
+    --_TracerSize: calc(var(--CursorSize)/2.5);
+    content: "";
+    position: fixed;
+
+    background: #E26D8A;
+    width: var(--_TracerSize);
+    aspect-ratio: 1;
+    outline: 1px solid #232323;
+
+    top: calc(var(--CursorTop) - var(--_TracerSize)/2); 
+    left: calc(var(--CursorLeft) - var(--_TracerSize)/2);
+    transition: 200ms ease-out;
+
+    border-radius: 50%;
+    pointer-events: inherit;
+}

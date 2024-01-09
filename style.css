@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Julee&family=Tilt+Neon&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bellota:wght@700&family=Nerko+One&display=swap');
+
+
+:root {
+
+    /* Colour Scheme */
+    --TextColour: #E6E6E6;
+    --PrimaryAccent: #66CED6;
+    --SecondaryAccent: #E26D8A;
+    --AltAccent: #9AC1A4;
+    --MainBG: #232323;
+    --AltBG: #2E4057;
+}
+
+* { /* a clean slate */
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--MainBG);
+}
+.AnimatedBG {
+    height: 100%;
+    height: 100svh;
+
+    width: 100%;
+    width: 100svw;
+
+    position: fixed;
+    z-index: -1000;
+
+    background-image: linear-gradient(100deg, var(--MainBG) 30%, black);
+    display: flex;
+}
+    .AnimatedBG > img {
+        width: 1000px;
+        place-self: end;
+        margin-inline: auto;
+        margin-right: 3%;
+        margin-bottom: 7%;
+        rotate: -30deg;
+        filter: invert(70%) sepia(35%) saturate(500%) hue-rotate(130deg) contrast(100%) blur(30px);
+    }
+header {
+    position: fixed;
+    display: inline-flex;
+    width: 100%;
+    height: 110px;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Julee";
+
+    background: linear-gradient(#232323, #23232340 85%, #23232300);
+    z-index: 1000;
+}
+    header > a {
+        all: unset;
+        width: 30vw;
+        margin-top: 50vh;
+        margin-top: 50svh;
+        animation: AdjustLogo linear;
+        animation-timeline: scroll(y);
+    }
+        header > a > img {
+            width: 100%;
+            height: 100%;
+        }
+    .headerItems {
+        display: inherit;
+        justify-content: space-between;
+        height: 60px;
+        min-width: 25vw;
+
+        padding: 0;
+    }
+        .headerItems > li{
+            all: unset;
+        }
+        .headerItems > li > a:hover {
+            color: var(--SecondaryAccent);
+        }
+            .headerItems > li > a {
+                font-size: 2.7vw;
+                color: var(--PrimaryAccent);
+                text-shadow: 2px 2px 0px var(--MainBG),
+                             -2px 2px 0px var(--MainBG),
+                             -2px 0px 0px var(--MainBG),
+                             2px 0px 0px var(--MainBG),
+                             2px -2px 0px var(--MainBG),
+                             -2px -2px 0px var(--MainBG);
+                text-underline-offset: 6px;
+                padding: 5px;
+            }
+   
+main, section {    
+    margin: 0;
+
+    height: auto;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+    background: none;
+    box-shadow: inset 0 -3px 100px black,
+                inset 0 3px 100px black;
+}
+    section > hr {
+        /* all: unset; */
+        width: 100%;
+        height: 3px;
+        background-image: linear-gradient(to right, #00000000 3%, #66CED6 30%, #E26D8A 40%, #E26D8A 60%, #66CED6 70%, #00000000 97%);
+        border: none;
+    }
+    section > h2 {            
+        display: flex;
+        justify-content: space-between;
+
+        width: 100%;
+        padding: 10%;
+        padding-block: 5% 0;
+        margin: 0;
+
+        font-family: "Bellota";
+        font-size: 95px;
+        text-shadow: 5px 5px 0px black,
+                    -5px 5px 0px black,
+                    -5px 0px 0px black,
+                    5px 0px 0px black,
+                    5px -5px 0px black,
+                    -5px -5px 0px black;
+        color: var(--PrimaryAccent);
+    }
+        section > h2 > span {
+            color: var(--SecondaryAccent);
+        }
+
+main {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+    main > img {
+        position: absolute;
+        filter: blur(5px);
+        min-height: 100vh;
+        min-height: 100svh;
+    }
+    main > address {
+        z-index: 10;
+        display: inline-flex;
+    }
+        main > address > .AnimGif {
+            height: 300px;
+            width: auto;
+            padding: 25px;
+            padding-right: 10px;
+        }
+        main > address > div {
+            background: linear-gradient(to right, #00000000 0%, #23232385 15%, #232323 50%, #23232385 85%, #00000000 100%);
+            border: 1px solid;
+            border-image: linear-gradient(to right, #00000000 0%,  #E6E6E6 10%, #E6E6E6 90%, #00000000 100%) 1;
+            
+            max-width: 500px;
+            padding-block: 10px;
+            margin-block: auto;
+            padding-inline: 24px;
+        }
+        main > address > div > p {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            color: var(--SecondaryAccent);
+            font-size: 30px;
+            margin-block: 3px;
+        }
+            main > address > div > p > span {
+                color: var(--TextColour);
+            }
+    main > .RepeatCustomer {
+            position: fixed;
+            display: inline-flex;
+            gap: 10px;
+            padding-left: 25px;
+            width: 700px;
+            height: 130px;
+
+            background: var(--AltAccent);
+
+            right: 0;
+            bottom: 9vh;
+
+            border: 5px solid var(--MainBG);
+            border-radius: 35px 0 0 35px;
+            border-right: 0;
+            z-index: 100;
+    }
+        main > .RepeatCustomer::before {
+            content: '';
+            width: 710px;
+            height: auto;
+            background: url("./Assets/Imgs/ReturnCustomerBG.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            margin-top: 5px;
+            margin-left: 30px;
+        }
+        main > .RepeatCustomer::after {
+            content: '';
+            background: #232323df;
+            height: 100px;
+            width: 10px;
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            margin-left: 10px;
+            border-radius: 30px 0 0 30px;
+        }
+        main > .RepeatCustomer:hover::after{
+            background: var(--SecondaryAccent);
+        }
+            main > .RepeatCustomer > div {
+                width: 125px;
+                aspect-ratio: 1;
+                background: url(./Assets/Imgs/ReturnCustomerX.png);
+                background-size: contain;
+                z-index: 1;
+            }
+
+#BookingPage {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 75px 0px;
+}   
+    #BookingPage > h2 {
+        margin-block: -10vh;
+        /* margin-top: -10vh; */
+    }
+    #BookingPage > .Calendar {
+        width: 600px;
+        height: 400px;
+        background: var(--AltAccent);
+        rotate: -11deg;
+        box-shadow: -10px 10px #9ac1a4b3,
+                    -20px 20px #9ac1a480,
+                    -30px 30px #9ac1a44d;
+    }
+
+        .Calendar > .Cal-Top {
+            display: inline-flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 65px;
+            padding: 10px;
+            padding-inline: 15px;
+        
+            color: white;
+            font-size: 55px;
+            font-family: "Nerko One";
+            align-items: center;
+            text-shadow: 2px 2px 10px black;
+        }
+            .Calendar > .Cal-Top > button {
+                all: unset;
+                font-size: 70px;
+                padding-inline: 10px;
+            }
+        .Calendar > .Cal-Btm {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            height: 75%;
+            gap: 3px 0;
+            margin: 20px;
+            border-radius: 25px;
+            overflow: clip;
+        }
+            .Calendar > .Cal-Btm > .CalDay {
+                display: grid;
+                place-items: center;
+                color: black;
+                background: white;
+                font-family: "Julee";
+                font-size: 40px;
+                height: 43px;
+            }
+            .Cal-Btm > .CalDay:nth-child(7n), /* Weekend and unrepresented days */
+            .Cal-Btm > .CalDay:empty{
+                background: var(--SecondaryAccent);
+            }
+        
+    #BookingPage > .Paper {
+        width: 550px;
+        aspect-ratio: 3/2.9;
+        background: url(./Assets/Imgs/torn_notebook.png);
+        background-size: contain;
+        margin-left: 210px;
+        rotate: -3deg;
+        padding-left: 95px;
+        padding-top: 30px;
+    }
+        #BookingPage > .Paper > .PaperHeading {
+            font-size: 50px;
+            padding-top: 13px;
+            padding-bottom: 45px;
+        }
+        #BookingPage > .Paper > p {
+            font-size: 24px;
+            margin: 0;
+            line-height: 37px;
+            max-width: 35ch;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+#ShoppingPage > h3 {
+    width: 100%;
+    border: 3px solid;
+    border-image: linear-gradient(to right, #00000000 3%, #66CED6 30%, #E26D8A 40%, #E26D8A 60%, #66CED6 70%, #00000000 97%) 1;
+    background: linear-gradient(to right, #66CED6 35%, #E26D8A 40%, #E26D8A 55%, #66CED6 70%, #00000000);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    font-family: "Bellota";
+    text-align: center;
+
+    margin: 0;
+    padding-block: -15px;
+    font-size: 45px;
+
+    overflow: visible;
+}
+
+#ShoppingPage, #AboutPage {
+    overflow-y: scroll;
+    direction: rtl;
+    outline: 1px solid var(--MainBG);
+}
+    #ShoppingPage > *,
+    #AboutPage > * {
+        direction: ltr;
+    }
+.ShopGallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    padding: 50px;
+    padding-inline: 7%;
+    gap: 60px;
+    justify-content: space-evenly;
+}
+    .ShopItem{
+        grid-template-rows: 65% 20% 10%;
+
+        aspect-ratio: 1/1.5;
+        overflow: clip;
+    }
+        .ShopItem > * {
+            background: var(--TextColour);
+            width: 100%;
+            margin: 0;
+        }
+        .ShopItem > img {
+            height: 60%;
+            clip-path: polygon(0% 0%, 100% 8px, 100% 100%, 0% 100%);
+            background: linear-gradient(3deg, var(--TextColour), #e6e6e68a 35%, transparent 90%);
+        }
+        .ShopItem > p {
+            margin-top: -1px;
+
+            padding-block: 5px;
+            padding-inline: 10px;
+            font-family: "Julee";
+            font-size: 20px;
+            font-weight: bold;
+            height: 20%;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% calc(100% - 8px));
+        }
+        .ShopItem > .BuyButton{
+            height: 16%;
+            clip-path: polygon(0% 0%, 100% 8px, 100% 100%, 0% calc(100% - 8px));    
+            display: grid;
+            place-items: center;
+            /* overflow: hidden; */
+            background: var(--PrimaryAccent);
+        }
+            .ShopItem > .BuyButton > p {
+                all: unset;
+                width: 150%;
+                text-align: center;
+                margin-top: -25px;
+                font-size: 120px;
+                font-weight: bolder;
+                font-family: 'Times New Roman';
+                color: var(--MainBG);  
+            }
+        .ShopItem > .SoldOut,
+        .RedDay {
+            background: var(--SecondaryAccent);
+        }
+            .ShopItem > .SoldOut > p{
+                
+                margin-top: -15px;
+                font-size: 100px;
+            }
+.StaffMember {
+    width: 100%;
+    min-height: 50%;
+    padding: 30px 50px;
+}
+    .StaffMember > .IMGframe {
+        display: flex;
+        width: 350px;
+        aspect-ratio: 1/1.3;
+
+        background: var(--MainBG);
+        border-radius: 15px;
+        float: left;
+        
+        border: 3px solid var(--TextColour);
+
+        margin-right: 30px;
+        margin-bottom: 30px;
+
+        overflow: hidden;
+    }
+        .StaffMember > .IMGframe:hover {
+            border: 4px solid var(--PrimaryAccent);
+            box-shadow: 0 0 10px var(--PrimaryAccent);
+            transition: 750ms ease-in-out ;
+        }
+            .StaffMember > .IMGframe:hover .Socials > * {
+                max-width: 15%;
+            }
+        .StaffMember > .IMGframe > .Socials{
+            display: flex;
+            justify-content: space-around;
+            align-content: end;
+            align-self: end;
+            padding-block: 10px;
+            width: 100%;
+
+            background: linear-gradient(to top, black, transparent 65%);
+        }
+        .StaffMember > .IMGframe > .Socials > * {
+            max-width: 0%;
+            filter: invert(1);
+        }
+            .StaffMember > .IMGframe > .Socials > *:hover {
+                filter: invert(65%) sepia(67%) saturate(3052%) hue-rotate(306deg) brightness(98%) contrast(81%);
+            }
+    .StaffMember > .AboutStaff {
+        font-family: "Julee";
+        font-size: 32px;
+        color: white;
+        text-align: center;
+    }
+        .StaffMember > .AboutStaff > .StaffName {
+            width: fit-content;
+            background: linear-gradient(to right, var(--PrimaryAccent), var(--SecondaryAccent) 40%, var(--SecondaryAccent) 60%, var(--PrimaryAccent));
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: end;
+            margin-inline: auto;
+            margin-right: 0;
+        }
+        .StaffMember > .AboutStaff > .StaffName::before {
+            content: "-";
+            padding-right: 10px;
+        }
+        
+
+
+.material-symbols-outlined.ico {
+    font-size: 24px;
+    color: var(--PrimaryAccent);
+}
+@keyframes AdjustLogo {
+    20% {
+        width: 30vh;
+        margin-top: 10vh;
+        margin-top: 5svh;
+    }
+    to {
+        width: 30vh;
+        margin-top: 5svh;
+    }
+}
