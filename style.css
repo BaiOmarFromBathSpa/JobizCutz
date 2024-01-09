@@ -49,7 +49,7 @@ header {
     position: fixed;
     display: inline-flex;
     width: 100%;
-    height: 110px;
+    height: 100px;
     justify-content: space-around;
     align-items: center;
     font-family: "Julee";
@@ -80,7 +80,8 @@ header {
         .headerItems > li{
             all: unset;
         }
-        .headerItems > li > a:hover {
+        .headerItems > li > a:hover,
+        .headerItems > li > a:focus {
             color: var(--SecondaryAccent);
         }
             .headerItems > li > a {
@@ -95,7 +96,29 @@ header {
                 text-underline-offset: 6px;
                 padding: 5px;
             }
-   
+header::before, header::after {
+    content: "";
+
+    width: inherit;
+    height: inherit;
+    z-index: -1;
+
+    background: var(--TextColour);
+    position: absolute;
+    top: -100px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
+
+    box-shadow: inset 0 0 15px var(--MainBG);
+    animation: HeaderBGslide linear;
+               animation-timeline: scroll(y);
+}
+header::after {
+    z-index: -2;
+
+    background: black;
+    top: -96px;
+}
+
 main, section {    
     margin: 0;
 
@@ -188,7 +211,7 @@ main {
 
             background: var(--AltAccent);
 
-            right: 0;
+            right: -600px;
             bottom: 9vh;
 
             border: 5px solid var(--MainBG);
@@ -220,7 +243,8 @@ main {
             margin-left: 10px;
             border-radius: 30px 0 0 30px;
         }
-        main > .RepeatCustomer:hover::after{
+        main > .RepeatCustomer:hover::after,
+        main > .RepeatCustomer:focus::after{
             background: var(--SecondaryAccent);
         }
             main > .RepeatCustomer > div {
@@ -230,19 +254,23 @@ main {
                 background-size: contain;
                 z-index: 1;
             }
+    main > .RepeatCustomer:hover,
+    main > .RepeatCustomer:focus,
+    .RCopen {
+        transform: translateX(-600px);
+        transition: 1s ease-in-out;
+    }
 
 #BookingPage {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
     gap: 75px 0px;
 }   
-    #BookingPage > h2 {
-        margin-block: -10vh;
-        /* margin-top: -10vh; */
-    }
     #BookingPage > .Calendar {
+        margin-top: -450px;
+        align-self: center;
+
         width: 600px;
         height: 400px;
         background: var(--AltAccent);
@@ -289,12 +317,19 @@ main {
                 font-size: 40px;
                 height: 43px;
             }
-            .Cal-Btm > .CalDay:nth-child(7n), /* Weekend and unrepresented days */
-            .Cal-Btm > .CalDay:empty{
+            .Calendar > .Cal-Btm > .CalDay:hover {
+                background: var(--TextColour);
+            }
+            .Calendar > .Cal-Btm > .CalDay:nth-child(7n), /* Weekend and unrepresented days */
+            .Calendar > .Cal-Btm > .CalDay:empty, 
+            .Calendar > .Cal-Btm > .RedDay{
                 background: var(--SecondaryAccent);
             }
         
     #BookingPage > .Paper {
+        margin-top: -450px;
+        align-self: center;
+
         width: 550px;
         aspect-ratio: 3/2.9;
         background: url(./Assets/Imgs/torn_notebook.png);
@@ -398,8 +433,7 @@ main {
                 font-family: 'Times New Roman';
                 color: var(--MainBG);  
             }
-        .ShopItem > .SoldOut,
-        .RedDay {
+        .ShopItem > .SoldOut {
             background: var(--SecondaryAccent);
         }
             .ShopItem > .SoldOut > p{
@@ -428,12 +462,14 @@ main {
 
         overflow: hidden;
     }
-        .StaffMember > .IMGframe:hover {
+        .StaffMember > .IMGframe:hover,
+        .StaffMember > .IMGframe:focus {
             border: 4px solid var(--PrimaryAccent);
             box-shadow: 0 0 10px var(--PrimaryAccent);
             transition: 750ms ease-in-out ;
         }
-            .StaffMember > .IMGframe:hover .Socials > * {
+            .StaffMember > .IMGframe:hover .Socials > *, 
+            .StaffMember > .IMGframe:focus .Socials > * {
                 max-width: 15%;
             }
         .StaffMember > .IMGframe > .Socials{
@@ -450,7 +486,8 @@ main {
             max-width: 0%;
             filter: invert(1);
         }
-            .StaffMember > .IMGframe > .Socials > *:hover {
+            .StaffMember > .IMGframe > .Socials > *:hover,
+            .StaffMember > .IMGframe > .Socials > *:focus {
                 filter: invert(65%) sepia(67%) saturate(3052%) hue-rotate(306deg) brightness(98%) contrast(81%);
             }
     .StaffMember > .AboutStaff {
@@ -472,7 +509,31 @@ main {
             content: "-";
             padding-right: 10px;
         }
-        
+#OurWorkPage > div {
+    display: inline-flex;
+    margin: 20px;
+    margin-bottom: 0;
+    gap: 20px;
+}
+    #OurWorkPage > div > img {
+        height: 35vh;
+        aspect-ratio: 1/0.55;
+        border-radius: 35px;
+        border: 5px solid var(--PrimaryAccent);
+    }
+#OurWorkPage > .LocalImg {
+    /* margin-left: 120px; */
+}
+    #OurWorkPage > .LocalImg > img {
+        background: pink;
+    }
+#OurWorkPage > .FromSocials {
+    margin-left: 120px;
+}
+    #OurWorkPage > .FromSocials > img {
+        background: var(--TextColour);
+    }
+
 
 
 .material-symbols-outlined.ico {
@@ -487,6 +548,15 @@ main {
     }
     to {
         width: 30vh;
+        margin-top: 5vh;
         margin-top: 5svh;
+    }
+}
+@keyframes HeaderBGslide {
+    20% {
+        transform: translateY(100px);
+    }
+    to {
+        transform: translateY(100px);
     }
 }
