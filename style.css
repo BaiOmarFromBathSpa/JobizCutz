@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bellota:wght@700&family=Nerko+One&display=swap');
 
+html {
+    scroll-behavior: smooth;
+    transition: 1s;
+}
 
 :root {
 
@@ -218,6 +222,8 @@ main {
             border-radius: 35px 0 0 35px;
             border-right: 0;
             z-index: 100;
+
+            transition: 1s ease-in;
     }
         main > .RepeatCustomer::before {
             content: '';
@@ -258,7 +264,7 @@ main {
     main > .RepeatCustomer:focus,
     .RCopen {
         transform: translateX(-600px);
-        transition: 1s ease-in-out;
+        transition: 750ms ease-in;
     }
 
 #BookingPage {
@@ -553,7 +559,7 @@ main {
     }
 }
 @keyframes HeaderBGslide {
-    20% {
+    40% {
         transform: translateY(100px);
     }
     to {
