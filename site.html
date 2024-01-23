@@ -26,10 +26,11 @@
         <link rel="stylesheet" href="CustomCursor.css">
         <link rel="stylesheet" href="style.css">
         <script defer src="CursorControl.js"></script>
+        <script defer src="index.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
         <title>Jobiz Cutz - Barbershop</title>
     </head>
-    <body>
+    <body onresize = "AnimateScrollGallery()">
         <div class="AnimatedBG"><img src="./Assets/Imgs/JC.png" alt=".bg-JC"></div>
         <header>
             <ul class="headerItems">
@@ -212,25 +213,56 @@
         </section>
         <section id="OurWorkPage">
             <h2>OUR <span>WORK</span></h2>
-            <div class="LocalImg">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
+            <div class="LocalImg ScrollGalleryWindow" >
+                <div class="ScrollGallery">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img style="background: red;" src="" alt="">
+                </div>
             </div>
-            <div class="FromSocials">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
+            <div class="FromSocials ScrollGalleryWindow">
+                <div class="ScrollGallery">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+    
+                    <img src="" alt="">
+                    <img style="background: red;" src="" alt="">
+                </div>
+            </div>
+            <div class="ExtraImages ScrollGalleryWindow">
+                <div class="ScrollGallery">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+    
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img style="background: red;" src="" alt="">
+                </div>
+            </div>
+            <div class="ExtraImages ScrollGalleryWindow">
+                <div class="ScrollGallery">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+                    <img src="" alt="">
+    
+                    <img style="background: red;" src="" alt="">
+                </div>
             </div>
         </section>
         <section id="AboutPage">

@@ -515,30 +515,50 @@ main {
             content: "-";
             padding-right: 10px;
         }
-#OurWorkPage > div {
-    display: inline-flex;
-    margin: 20px;
-    margin-bottom: 0;
-    gap: 20px;
+#OurWorkPage > .ScrollGalleryWindow {
+    padding-block: 1vh;
+    overflow: hidden;
+    width: 100vw;
+    width: 100svw;
+    margin-left: auto;
 }
-    #OurWorkPage > div > img {
-        height: 35vh;
-        aspect-ratio: 1/0.55;
-        border-radius: 35px;
-        border: 5px solid var(--PrimaryAccent);
+    .ScrollGalleryWindow::after {
+        content: "";
     }
-#OurWorkPage > .LocalImg {
-    /* margin-left: 120px; */
-}
-    #OurWorkPage > .LocalImg > img {
-        background: pink;
+    #OurWorkPage > .ScrollGalleryWindow > .ScrollGallery {
+        display: inline-flex;
+        overflow: visible;
+        gap: 1.5vw;
+        padding-inline: 30px;
+        animation: ScrollGal 30s infinite cubic-bezier(0.3, 0, 0.3, 1);
     }
+    .ScrollGallery:hover {
+        animation-play-state: paused !important;
+    }
+        .ScrollGallery > img {
+            min-height: 35vh;
+            min-height: 35svh;
+            aspect-ratio: 1/0.65;
+            /* min-width: 60vh; */
+            /* min-width: 60svh; */
+
+            border: 5px solid var(--PrimaryAccent);
+            border-radius: 35px;
+            background: black;
+        }
+        .FromSocials > .ScrollGallery > img {
+            border-color: var(--SecondaryAccent);
+        }
 #OurWorkPage > .FromSocials {
-    margin-left: 120px;
+    width: 93vw;
+    width: 93svw;
 }
-    #OurWorkPage > .FromSocials > img {
-        background: var(--TextColour);
-    }
+#OurWorkPage > .ExtraImages {
+    display: none;
+}
+#OurWorkPage > .ExtraImages:nth-of-type(odd) > .ScrollGallery > img {
+    border-color: var(--AltAccent);  
+}
 
 
 
@@ -564,5 +584,10 @@ main {
     }
     to {
         transform: translateY(100px);
+    }
+}
+@keyframes ScrollGal {
+    50% {
+        translate: 0px;
     }
 }
