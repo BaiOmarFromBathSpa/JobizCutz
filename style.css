@@ -29,10 +29,7 @@ body {
 }
 .AnimatedBG {
     height: 100%;
-    height: 100svh;
-
     width: 100%;
-    width: 100svw;
 
     position: fixed;
     z-index: -1000;
@@ -52,7 +49,8 @@ body {
 header {
     position: fixed;
     display: inline-flex;
-    width: 100%;
+    width: 100vw;
+    width: 100svw;
     height: 100px;
     justify-content: space-around;
     align-items: center;
@@ -70,8 +68,9 @@ header {
         animation-timeline: scroll(y);
     }
         header > a > img {
-            width: 100%;
-            height: 100%;
+            width: 30vw;
+            width: 30svw;
+            height: auto;
         }
     .headerItems {
         display: inherit;
@@ -172,17 +171,20 @@ main {
     main > img {
         position: absolute;
         filter: blur(5px);
-        min-height: 100vh;
-        min-height: 100svh;
+        height: 100vh;
+        height: 100svh;
+        min-width: 100vw;
+        min-width: 100svw;
     }
     main > address {
         z-index: 10;
         display: inline-flex;
     }
         main > address > .AnimGif {
-            height: 300px;
+            height: 40vh;
+            height: 40svh;
             width: auto;
-            padding: 25px;
+            padding: 2vh;
             padding-right: 10px;
         }
         main > address > div {
@@ -208,18 +210,18 @@ main {
     main > .RepeatCustomer {
             position: fixed;
             display: inline-flex;
-            gap: 10px;
+            gap: 0.95vw;
             padding-left: 25px;
-            width: 700px;
-            height: 130px;
+            width: 45vw;
+            aspect-ratio: 1/0.19;
 
             background: var(--AltAccent);
 
-            right: -600px;
+            right: -40vw;
             bottom: 9vh;
 
             border: 5px solid var(--MainBG);
-            border-radius: 35px 0 0 35px;
+            border-radius: 2vw 0 0 2vw;
             border-right: 0;
             z-index: 100;
 
@@ -227,7 +229,7 @@ main {
     }
         main > .RepeatCustomer::before {
             content: '';
-            width: 710px;
+            width: inherit;
             height: auto;
             background: url("./Assets/Imgs/ReturnCustomerBG.png");
             background-size: contain;
@@ -241,7 +243,7 @@ main {
         main > .RepeatCustomer::after {
             content: '';
             background: #232323df;
-            height: 100px;
+            height: calc(100% - 20%);
             width: 10px;
             position: absolute;
             inset: 0;
@@ -254,29 +256,28 @@ main {
             background: var(--SecondaryAccent);
         }
             main > .RepeatCustomer > div {
-                width: 125px;
+                height: 100%;
                 aspect-ratio: 1;
                 background: url(./Assets/Imgs/ReturnCustomerX.png);
                 background-size: contain;
+                background-repeat: no-repeat;
                 z-index: 1;
             }
     main > .RepeatCustomer:hover,
     main > .RepeatCustomer:focus,
     .RCopen {
-        transform: translateX(-600px);
+        right: 0;
         transition: 750ms ease-in;
     }
 
-#BookingPage {
+.CalAndPaper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 75px 0px;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 70%;
 }   
-    #BookingPage > .Calendar {
-        margin-top: -450px;
-        align-self: center;
-
+    #BookingPage > .CalAndPaper > .Calendar {
         width: 600px;
         height: 400px;
         background: var(--AltAccent);
@@ -290,9 +291,9 @@ main {
             display: inline-flex;
             justify-content: space-between;
             width: 100%;
-            height: 65px;
-            padding: 10px;
-            padding-inline: 15px;
+            height: 15%;
+            padding-block: 5% 0px;
+            padding-inline: 2%;
         
             color: white;
             font-size: 55px;
@@ -302,17 +303,23 @@ main {
         }
             .Calendar > .Cal-Top > button {
                 all: unset;
-                font-size: 70px;
+                font-size: 75px;
                 padding-inline: 10px;
+            }
+            .Calendar > .Cal-Top > button:hover,
+            .Calendar > .Cal-Top > button:focus{
+                color: var(--SecondaryAccent);
             }
         .Calendar > .Cal-Btm {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
+            grid-template-rows: repeat(6, 1fr);
             height: 75%;
             gap: 3px 0;
-            margin: 20px;
+            margin-inline: 3%;
+            margin-top: 2.5%;
             border-radius: 25px;
-            overflow: clip;
+            overflow: hidden;
         }
             .Calendar > .Cal-Btm > .CalDay {
                 display: grid;
@@ -320,8 +327,7 @@ main {
                 color: black;
                 background: white;
                 font-family: "Julee";
-                font-size: 40px;
-                height: 43px;
+                font-size: 35px;
             }
             .Calendar > .Cal-Btm > .CalDay:hover {
                 background: var(--TextColour);
@@ -332,25 +338,26 @@ main {
                 background: var(--SecondaryAccent);
             }
         
-    #BookingPage > .Paper {
-        margin-top: -450px;
+    #BookingPage > .CalAndPaper > .Paper {
         align-self: center;
 
         width: 550px;
         aspect-ratio: 3/2.9;
         background: url(./Assets/Imgs/torn_notebook.png);
         background-size: contain;
-        margin-left: 210px;
         rotate: -3deg;
         padding-left: 95px;
         padding-top: 30px;
     }
-        #BookingPage > .Paper > .PaperHeading {
+        #BookingPage > .CalAndPaper > .Paper > .PaperHeading {
+            justify-content: start;
             font-size: 50px;
             padding-top: 13px;
             padding-bottom: 45px;
         }
-        #BookingPage > .Paper > p {
+        #BookingPage > .CalAndPaper > .Paper > p {
+            display: flex;
+            justify-content: space-around;
             font-size: 24px;
             margin: 0;
             line-height: 37px;
@@ -358,6 +365,19 @@ main {
             overflow: hidden;
             text-overflow: ellipsis;
         }
+            #BookingPage > .CalAndPaper > .Paper > p > .TimeSlot {
+                text-shadow: 1px 1px 3px #0000003f;
+            }
+            #BookingPage > .CalAndPaper > .Paper > p > .Open {
+                color: black;
+            }
+                #BookingPage > .CalAndPaper > .Paper > p > .Open:hover,
+                #BookingPage > .CalAndPaper > .Paper > p > .Open:focus {
+                    color: var(--PrimaryAccent);
+                }
+            #BookingPage > .CalAndPaper > .Paper > p > .Closed {
+                color: var(--SecondaryAccent);
+            }
 #ShoppingPage > h3 {
     width: 100%;
     border: 3px solid;
@@ -398,7 +418,7 @@ main {
         grid-template-rows: 65% 20% 10%;
 
         aspect-ratio: 1/1.5;
-        overflow: clip;
+        overflow: hidden;
     }
         .ShopItem > * {
             background: var(--TextColour);
@@ -433,8 +453,8 @@ main {
                 all: unset;
                 width: 150%;
                 text-align: center;
-                margin-top: -25px;
-                font-size: 120px;
+                margin-top: -1.4vw;
+                font-size: 6.5vw;
                 font-weight: bolder;
                 font-family: 'Times New Roman';
                 color: var(--MainBG);  
@@ -443,9 +463,8 @@ main {
             background: var(--SecondaryAccent);
         }
             .ShopItem > .SoldOut > p{
-                
-                margin-top: -15px;
-                font-size: 100px;
+                margin-top: -0.8vw;
+                font-size: 5.15vw;
             }
 .StaffMember {
     width: 100%;
@@ -503,7 +522,7 @@ main {
         text-align: center;
     }
         .StaffMember > .AboutStaff > .StaffName {
-            width: fit-content;
+            width: 10%;
             background: linear-gradient(to right, var(--PrimaryAccent), var(--SecondaryAccent) 40%, var(--SecondaryAccent) 60%, var(--PrimaryAccent));
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -515,18 +534,23 @@ main {
             content: "-";
             padding-right: 10px;
         }
+#OurWorkPage > h2 {
+    margin-bottom: 20px;
+}
 #OurWorkPage > .ScrollGalleryWindow {
-    padding-block: 1vh;
+    padding-block: 1.5vh;
     overflow: hidden;
     width: 100vw;
     width: 100svw;
+    height: 35vh;
+    height: 35svh;
     margin-left: auto;
 }
-    .ScrollGalleryWindow::after {
-        content: "";
-    }
     #OurWorkPage > .ScrollGalleryWindow > .ScrollGallery {
-        display: inline-flex;
+        display: flex;
+        flex-direction: row;
+        width: max-content;
+        height: 100%;
         overflow: visible;
         gap: 1.5vw;
         padding-inline: 30px;
@@ -536,12 +560,8 @@ main {
         animation-play-state: paused !important;
     }
         .ScrollGallery > img {
-            min-height: 35vh;
-            min-height: 35svh;
+            min-height: 100%;
             aspect-ratio: 1/0.65;
-            /* min-width: 60vh; */
-            /* min-width: 60svh; */
-
             border: 5px solid var(--PrimaryAccent);
             border-radius: 35px;
             background: black;
@@ -567,19 +587,17 @@ main {
     color: var(--PrimaryAccent);
 }
 @keyframes AdjustLogo {
-    20% {
-        width: 30vh;
-        margin-top: 10vh;
-        margin-top: 5svh;
+    10% {
+        scale: 60%;
+        margin-top: 4%;
     }
     to {
-        width: 30vh;
-        margin-top: 5vh;
-        margin-top: 5svh;
+        scale: 60%;
+        margin-top: 4%;
     }
 }
 @keyframes HeaderBGslide {
-    40% {
+    15% {
         transform: translateY(100px);
     }
     to {
@@ -590,4 +608,90 @@ main {
     50% {
         translate: 0px;
     }
+}
+
+
+@media (max-width: 1280px) {
+    section > h2 {            
+        font-size: 60px;
+        text-shadow: 3px 3px 0px black,
+                    -3px 3px 0px black,
+                    -3px 0px 0px black,
+                    3px 0px 0px black,
+                    3px -3px 0px black,
+                    -3px -3px 0px black;
+    }
+    /*  */
+    main > address > div {
+        padding-block: 8px;
+        padding-inline: 18px;
+    }
+    main > address > div > p {
+        font-size: 24px;
+    }
+    /*  */
+    #BookingPage > .CalAndPaper > .Calendar {
+        width: 450px;
+        height: 300px;
+    }
+        .Calendar > .Cal-Top {
+            font-size: 45px;
+        }
+            .Calendar > .Cal-Top > button {
+                all: unset;
+                font-size: 55px;
+                padding-inline: 5px;
+            }
+        .Calendar > .Cal-Btm {
+            border-radius: 15px;
+        }
+            .Calendar > .Cal-Btm > .CalDay {
+                font-size: 30px;
+            }
+        
+    #BookingPage > .CalAndPaper > .Paper {
+        width: 400px;
+        padding-left: 65px;
+        padding-top: 13px;
+    }
+        #BookingPage > .CalAndPaper > .Paper > .PaperHeading {
+            font-size: 40px;
+            padding-top: 13px;
+            padding-bottom: 37px;
+        }
+        #BookingPage > .CalAndPaper > .Paper > p {
+            font-size: 20px;
+            line-height: 27px;
+            max-width: 30ch;
+        }
+    /*  */
+    #ShoppingPage > h3 {
+        font-size: 35px;
+    }
+    .ShopGallery {
+        padding: 30px;
+        padding-inline: 7%;
+    }
+    .ShopItem > p {
+        padding-block: 3px;
+        padding-inline: 6px;
+        font-size: 14px;
+    }
+    /*  */
+    .StaffMember {
+        width: 100%;
+        min-height: max-content;
+    }
+        .StaffMember > .IMGframe {
+            width: 300px;
+            border-radius: 10px; 
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+        .StaffMember > .AboutStaff {
+            font-size: 25px;
+        }
+            .StaffMember > .AboutStaff > .StaffName {
+                width: 15%;
+            }
 }
