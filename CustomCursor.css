@@ -48,3 +48,26 @@ body {
     border-radius: 50%;
     pointer-events: inherit;
 }
+@media (max-width: 1280px) {
+    :root {
+        --CursorSize: 24px;
+    }
+    #Cursor{
+        border: 3px solid #66CED6;
+        outline: 1.5px solid #232323;
+    }
+}
+@media (max-width: 900px) {
+    :root {
+        --CursorSize: 16px;
+    }
+    #Cursor{
+        border: 2px solid #66CED6;
+        outline: 1px solid #232323;
+    }
+}
+@media (max-width: 460px) {
+    * {
+        cursor: pointer;
+    }
+}

@@ -34,16 +34,17 @@
         <div class="AnimatedBG"><img src="./Assets/Imgs/JC.png" alt=".bg-JC"></div>
         <header>
             <ul class="headerItems">
-                <li><a href="#BookingPage">BOOK</a></li>
-                <li><a href="#ShoppingPage">SHOP</a></li>
+                <li><a href="#BookingPage" onclick="HamburgerToggle()">BOOK</a></li>
+                <li><a href="#ShoppingPage" onclick="HamburgerToggle()">SHOP</a></li>
             </ul>
             <a href="#OurWorkPage">
                 <img href="#OurWorkPage" src="./Assets/Imgs/JobizCutz_logo.png" alt="Jobiz Cutz, Cuts Braids Trims">
             </a>
             <ul class="headerItems">
-                <li><a href="#AboutPage">ABOUT</a></li>
-                <li><a href="#">Hi, User</a></li>
+                <li><a href="#AboutPage" onclick="HamburgerToggle()">ABOUT</a></li>
+                <li><a href="#" onclick="HamburgerToggle()">Hi, User</a></li>
             </ul>
+            <img id="HamburgerMenu" onclick="HamburgerToggle()" src="./Assets/Imgs/Ham_Closed.png" alt="Hamburger Menu Closed - shows or hides menu"></img>
         </header>
         <main>
             <img src="./Assets/Imgs/BackgroundImage.jpg" alt="Backgroung image of a barbershop environment">
@@ -59,8 +60,7 @@
                 <div></div>
                 <div></div>
                 <div></div>
-                <div></div>
-                <div></div>
+
             </div>
         </main>
         <section id="BookingPage">
