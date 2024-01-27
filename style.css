@@ -51,7 +51,7 @@ header {
     display: inline-flex;
     width: 100vw;
     width: 100svw;
-    height: 100px;
+    height: 15vh;
     justify-content: space-around;
     align-items: center;
     font-family: "Julee";
@@ -210,7 +210,7 @@ main {
     main > .RepeatCustomer {
             position: fixed;
             display: inline-flex;
-            gap: 0.95vw;
+            gap: 0.8vw;
             padding-left: 25px;
             width: 45vw;
             aspect-ratio: 1/0.19;
@@ -220,7 +220,7 @@ main {
             right: -40vw;
             bottom: 9vh;
 
-            border: 5px solid var(--MainBG);
+            border: 0.3vw solid var(--MainBG);
             border-radius: 2vw 0 0 2vw;
             border-right: 0;
             z-index: 100;
@@ -244,12 +244,12 @@ main {
             content: '';
             background: #232323df;
             height: calc(100% - 20%);
-            width: 10px;
+            width: 0.7vw;
             position: absolute;
             inset: 0;
             margin: auto;
             margin-left: 10px;
-            border-radius: 30px 0 0 30px;
+            border-radius: 0.7vw 0 0 0.7vw;
         }
         main > .RepeatCustomer:hover::after,
         main > .RepeatCustomer:focus::after{
@@ -612,6 +612,28 @@ main {
 
 
 @media (max-width: 1280px) {
+    .headerItems > li > a {
+        text-shadow: 1.5px 1.5px 0px var(--MainBG),
+                     -1.5px 1.5px 0px var(--MainBG),
+                     -1.5px 0px 0px var(--MainBG),
+                     1.5px 0px 0px var(--MainBG),
+                     1.5px -1.5px 0px var(--MainBG),
+                     -1.5px -1.5px 0px var(--MainBG);
+        padding: 5px;
+    }
+    header::before, header::after {
+        top: -125px;
+    }   
+    header::after {
+        top: -121px;
+    }
+    /*  */
+    .AnimatedBG > img {
+        width: 650px;
+        margin-right: 0%;
+        margin-bottom: 7%;
+    }
+    /*  */
     section > h2 {            
         font-size: 60px;
         text-shadow: 3px 3px 0px black,
@@ -628,6 +650,9 @@ main {
     }
     main > address > div > p {
         font-size: 24px;
+    }
+    .material-symbols-outlined.ico {
+        font-size: 22px;
     }
     /*  */
     #BookingPage > .CalAndPaper > .Calendar {
@@ -669,6 +694,7 @@ main {
         font-size: 35px;
     }
     .ShopGallery {
+        gap: 45px;
         padding: 30px;
         padding-inline: 7%;
     }
@@ -693,5 +719,421 @@ main {
         }
             .StaffMember > .AboutStaff > .StaffName {
                 width: 15%;
+            }
+}
+
+@media (max-width: 900px) {
+    .headerItems > li > a {
+        text-shadow: 1px 1px 0px var(--MainBG),
+                     -1px 1px 0px var(--MainBG),
+                     -1px 0px 0px var(--MainBG),
+                     1px 0px 0px var(--MainBG),
+                     1px -1px 0px var(--MainBG),
+                     -1px -1px 0px var(--MainBG);
+        padding: 5px;
+    }
+    header::before, header::after {
+        top: -125px;
+    }   
+    header::after {
+        top: -123px;
+    }
+    /*  */
+    .AnimatedBG > img {
+        width: 500px;
+        margin-right: 1%;
+        margin-bottom: 8%;
+    }
+    /*  */
+    section > h2 {            
+        font-size: 40px;
+        text-shadow: 2px 2px 0px black,
+                    -2px 2px 0px black,
+                    -2px 0px 0px black,
+                    2px 0px 0px black,
+                    2px -2px 0px black,
+                    -2px -2px 0px black;
+    }
+    /*  */
+    main > address > div {
+        padding-block: 5px;
+        padding-inline: 15px;
+    }
+    main > address > div > p {
+        font-size: 20px;
+    }
+    .material-symbols-outlined.ico {
+        font-size: 18px;
+    }
+    /*  */
+    #BookingPage > .CalAndPaper > .Calendar {
+        width: 310px;
+        height: 230px;
+    }
+        .Calendar > .Cal-Top {
+            font-size: 30px;
+        }
+            .Calendar > .Cal-Top > button {
+                font-size: 40px;
+                padding-inline: 5px;
+            }
+        .Calendar > .Cal-Btm {
+            border-radius: 12px;
+        }
+            .Calendar > .Cal-Btm > .CalDay {
+                font-size: 20px;
+            }
+        
+    #BookingPage > .CalAndPaper > .Paper {
+        width: 300px;
+        padding-left: 50px;
+        padding-top: 12px;
+    }
+        #BookingPage > .CalAndPaper > .Paper > .PaperHeading {
+            font-size: 25px;
+            padding-top: 13px;
+            padding-bottom: 23px;
+        }
+        #BookingPage > .CalAndPaper > .Paper > p {
+            font-size: 16px;
+            line-height: 20px;
+            max-width: 30ch;
+        }
+    /*  */
+    #ShoppingPage > h3 {
+        font-size: 24px;
+        
+        border: 2px solid;
+        border-image: linear-gradient(to right, #00000000 3%, #66CED6 30%, #E26D8A 40%, #E26D8A 60%, #66CED6 70%, #00000000 97%) 1;
+        background: linear-gradient(to right, #66CED6 35%, #E26D8A 40%, #E26D8A 55%, #66CED6 70%, #00000000);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .ShopGallery {
+        gap: 35px;
+        padding: 20px;
+        padding-inline: 7%;
+    }
+    .ShopItem > p {
+        padding-block: 3px;
+        padding-inline: 6px;
+        font-size: 10px;
+    }
+    /*  */
+    .StaffMember {
+        width: 100%;
+        min-height: max-content;
+    }
+        .StaffMember > .IMGframe {
+            width: 200px;
+            border-radius: 10px; 
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+        .StaffMember > .AboutStaff {
+            font-size: 16px;
+        }
+            .StaffMember > .AboutStaff > .StaffName {
+                width: 15%;
+            }
+}
+@media (max-width: 460px) {
+    .AnimatedBG {
+        z-index: -100;
+        background-image: linear-gradient(135deg, var(--MainBG) 30%, black);
+    }
+        .AnimatedBG > img {
+            width: 400px;
+            margin-inline: auto;
+            margin-bottom: 25%;
+        }
+    
+    header {
+        display: grid;
+        place-content: center;
+        height: 8vh;
+    }
+        header > a {
+            all: unset;
+            margin-top: 50vh;
+            margin-top: 50svh;
+            animation: AdjustLogo linear;
+            animation-timeline: scroll(y);
+        }
+            header > a > img {
+                width: 60vw;
+                width: 60svw;
+                align-self: center;
+                height: auto;
+                z-index: 100;
+            }
+        .headerItems {
+            display: flex;
+            /* display: none; */
+            position: fixed;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 1vh;
+            top: 3vh;
+            right: 0;
+            width: 20vw;
+            height: 12vh;
+            background: var(--TextColour);
+            padding-bottom: 3vh;
+            padding-left: 10px;
+            box-shadow: -3px 0 black;
+            z-index: 1;
+        }
+        .headerItems:nth-of-type(even){
+            top: 13vh;
+            height: 13vh;
+            z-index: 2;
+            background: linear-gradient(to bottom, var(--TextColour) 60%, transparent 98%);
+        }
+        .headerItems:nth-of-type(odd)::before{
+            content: '';
+            position: absolute;
+            top: -10vh;
+            left: 0;
+            width: 30vw;
+            z-index: -1;
+            height: inherit;
+            box-shadow: -3px 0 black;
+            background: var(--TextColour);
+        }
+            .headerItems > li > a {
+                font-size: 5vw;
+                color: var(--PrimaryAccent);
+                text-shadow: 1px 1px 0px var(--MainBG),
+                             -1px 1px 0px var(--MainBG),
+                             -1px 0px 0px var(--MainBG),
+                             1px 0px 0px var(--MainBG),
+                             1px -1px 0px var(--MainBG),
+                             -1px -1px 0px var(--MainBG);
+                text-underline-offset: 4px;
+            }
+    header::before, header::after {
+        top: -100px;
+    }
+    header::after {
+        top: -97px;
+    }
+main, section {    
+    margin: 0;
+
+    height: auto;
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+    background: none;
+    box-shadow: inset 0 -3px 100px black,
+                inset 0 3px 100px black;
+}
+    section > hr {
+        /* all: unset; */
+        width: 110vh;
+        margin-right: -5vh;
+        height: 1.5px;
+        background-image: linear-gradient(to right, #00000000, #66CED6 30%, #E26D8A 40%, #E26D8A 60%, #66CED6 70%, #00000000);
+        border: none;
+    }
+    section > h2 {            
+        padding-block: 11% 0;
+
+        font-size: 35px;
+        text-shadow: 1.5px 1.5px 0px black,
+                    -1.5px 1.5px 0px black,
+                    -1.5px 0px 0px black,
+                    1.5px 0px 0px black,
+                    1.5px -1.5px 0px black,
+                    -1.5px -1.5px 0px black;
+    }
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+    main > address {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        z-index: 10;
+    }
+        main > address > .AnimGif {
+            width: 25vw;
+            width: 25svw;
+            height: auto;
+            padding: 1vh;
+        }
+        main > address > div {
+            min-width: 60vw;
+            padding-block: 5px;
+            padding-inline: 30px;
+        }
+        main > address > div > p {
+            font-size: 16px;
+        }
+    main > .RepeatCustomer {
+            justify-content: end;
+            flex-direction: column;
+            gap: 0;
+            max-width: 15vw;
+            max-width: 15svw;
+            aspect-ratio: 0.2/1;
+
+            inset: 0;
+            left: 5vw;
+            top: -65vw;
+            padding: 0;
+            padding-bottom: 1vh;
+
+            border: 0.6vw solid var(--MainBG);
+            border-radius: 0 0 2vw 2vw;
+            border-top: 0;
+            z-index: 1000;
+    }
+        main > .RepeatCustomer::before {
+            content: '';
+            width: 500%;
+            height: 25%;
+            background: url("./Assets/Imgs/ReturnCustomerBG.png") 0 0 no-repeat;
+            background-size: contain;
+            position: absolute;
+            rotate: -90deg;
+            top: 35%;
+            left: -180%;
+            margin: 0;
+        }
+        main > .RepeatCustomer::after {
+            width: calc(100% - 20%);
+            height: 1vw;
+            margin-inline: auto;
+            margin-bottom: 1vh;
+            border-radius: 0 0 0.7vw 0.7vw;
+        }
+            main > .RepeatCustomer > div {
+                max-height: 20%;
+            }
+    main > .RepeatCustomer:hover,
+    main > .RepeatCustomer:focus,
+    .RCopen {
+        top: 0;
+    }
+    #BookingPage > .CalAndPaper {
+        gap: 40px;
+    }
+    #BookingPage > .CalAndPaper > .Calendar {
+        margin-top: 20px;
+        width: 250px;
+        height: 180px;
+        box-shadow: -5px 5px #9ac1a4b3,
+                    -10px 10px #9ac1a480,
+                    -15px 15px #9ac1a44d;
+    }
+        .Calendar > .Cal-Top {
+            font-size: 25px;
+        }
+            .Calendar > .Cal-Top > button {
+                font-size: 30px;
+                padding-inline: 5px;
+            }
+        .Calendar > .Cal-Btm {
+            gap: 2px 0;
+            border-radius: 12px;
+        }
+            .Calendar > .Cal-Btm > .CalDay {
+                font-size: 100%;
+            }
+        
+    #BookingPage > .CalAndPaper > .Paper {
+        width: 230px;
+        padding-left: 38px;
+        padding-top: 12px;
+    }
+        #BookingPage > .CalAndPaper > .Paper > .PaperHeading {
+            font-size: 18px;
+            padding-top: 5px;
+            padding-bottom: 21px;
+        }
+        #BookingPage > .CalAndPaper > .Paper > p {
+            font-size: 12px;
+            line-height: 15px;
+            max-width: 30ch;
+        }
+    #ShoppingPage > h3 {
+        display: block;
+        font-size: 20px;
+        width: 110vw;
+        margin-right: -5vw;
+
+        border: 1px solid;
+        border-image: linear-gradient(to right, #00000000, #66CED6 30%, #E26D8A 40%, #E26D8A 60%, #66CED6 70%, #00000000) 1;
+        background: linear-gradient(to right, #66CED6 35%, #E26D8A 40%, #E26D8A 55%, #66CED6 70%, #00000000);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .ShopGallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 24px;
+        padding-inline: 7%;
+    }
+    .ShopItem > p {
+        padding: 2px;
+        font-size: 12px;
+    }
+    .ShopItem > .BuyButton > p {
+        all: unset;
+        width: 150%;
+        text-align: center;
+        margin-top: -2vw;
+        font-size: 12vw;
+        font-weight: bolder;
+        font-family: 'Times New Roman';
+        color: var(--MainBG);  
+    }
+    .ShopItem > .SoldOut > p{
+        margin-top: -1.3vw;
+        font-size: 11vw;
+    }
+    #OurWorkPage > h2 {
+        margin-bottom: 0;
+    }
+    #OurWorkPage > .ScrollGalleryWindow {
+        padding-block: 0.5vh;
+        height: 21vh;
+        height: 21svh;
+    }
+            .ScrollGallery > img {
+                border-radius: 15px;
+            }
+    #OurWorkPage > .ExtraImages {
+        display: flex;
+    } 
+    .StaffMember {
+        width: 100%;
+        min-height: max-content;
+        padding: 15px 40px;
+    }
+        .StaffMember > .IMGframe {
+            width: 150px;
+            border-radius: 10px; 
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .StaffMember > .AboutStaff {
+            font-size: 16px;
+            text-align: left;
+        }
+            .StaffMember > .AboutStaff > .StaffName {
+                width: 60%;
+                text-align: center;
+                margin-inline: auto;
+            }
+            .StaffMember > .AboutStaff > .StaffName::after,
+            .StaffMember > .AboutStaff > .StaffName::before {
+                content: "-";
+                padding-inline: 10px;
             }
 }
