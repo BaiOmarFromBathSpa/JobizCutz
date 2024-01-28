@@ -231,7 +231,7 @@ main {
             content: '';
             width: inherit;
             height: auto;
-            background: url("./Assets/Imgs/ReturnCustomerBG.png");
+            background: url("./Assets/Imgs/ReturnCustomerBG.webp");
             background-size: contain;
             background-repeat: no-repeat;
             position: absolute;
@@ -258,7 +258,7 @@ main {
             main > .RepeatCustomer > div {
                 height: 100%;
                 aspect-ratio: 1;
-                background: url(./Assets/Imgs/ReturnCustomerX.png);
+                background: url(./Assets/Imgs/ReturnCustomerX.webp);
                 background-size: contain;
                 background-repeat: no-repeat;
                 z-index: 1;
@@ -343,7 +343,7 @@ main {
 
         width: 550px;
         aspect-ratio: 3/2.9;
-        background: url(./Assets/Imgs/torn_notebook.png);
+        background: url(./Assets/Imgs/torn_notebook.webp);
         background-size: contain;
         rotate: -3deg;
         padding-left: 95px;
@@ -1008,7 +1008,7 @@ main {
             content: '';
             width: 500%;
             height: 25%;
-            background: url("./Assets/Imgs/ReturnCustomerBG.png") 0 0 no-repeat;
+            background: url("./Assets/Imgs/ReturnCustomerBG.webp") 0 0 no-repeat;
             background-size: contain;
             position: absolute;
             rotate: -90deg;
