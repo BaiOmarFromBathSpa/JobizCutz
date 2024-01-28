@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Julee&family=Tilt+Neon&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bellota:wght@700&family=Nerko+One&display=swap');
+/* Google fonts URL imports */
 
 html {
+    /* maked anhor navigations smoother intead of instant */
     scroll-behavior: smooth;
     transition: 1s;
 }
 
 :root {
-
     /* Colour Scheme */
     --TextColour: #E6E6E6;
     --PrimaryAccent: #66CED6;
@@ -18,11 +19,13 @@ html {
     --AltBG: #2E4057;
 }
 
-* { /* a clean slate */
-    box-sizing: border-box;
+* { 
+    /* Includes padding and border to all elements size (width, height) */
+    box-sizing: border-box; 
 }
 
 body {
+    /* removes default body margin nd hides all horizontal overflow */
     margin: 0;
     overflow-x: hidden;
     background: var(--MainBG);
@@ -31,6 +34,7 @@ body {
     height: 100%;
     width: 100%;
 
+    /* background div containing an animaed JC img element pushed all the way back */
     position: fixed;
     z-index: -1000;
 
@@ -38,41 +42,50 @@ body {
     display: flex;
 }
     .AnimatedBG > img {
+        /* rotates the element and puts it on the bottom right */
         width: 1000px;
         place-self: end;
         margin-inline: auto;
         margin-right: 3%;
         margin-bottom: 7%;
         rotate: -30deg;
+        /* converts it from black to various colors */
         filter: invert(70%) sepia(35%) saturate(500%) hue-rotate(130deg) contrast(100%) blur(30px);
     }
 header {
+    /* Fixed on the top with items placed horizontally */
     position: fixed;
     display: inline-flex;
+    /* I use these thoughout the document, it adjusts some elements to the true width of the page - the duplicate above is a fallback for unsurported browsers */
     width: 100vw;
-    width: 100svw;
+    width: 100svw; 
     height: 15vh;
     justify-content: space-around;
     align-items: center;
     font-family: "Julee";
 
-    background: linear-gradient(#232323, #23232340 85%, #23232300);
+    /* A shadow just from the first "Page" */
+    background: linear-gradient(#232323, #23232340 85%, transparent);
     z-index: 1000;
 }
     header > a {
+        /* the logo, it starts as a faux main element - using a top margin 
+        but anamates back to the header as the user scrolls down (unsupported in some browsers currently)*/
         all: unset;
         width: 30vw;
         margin-top: 50vh;
         margin-top: 50svh;
+        /* animation is based on users y scroll instead on seconds */
         animation: AdjustLogo linear;
         animation-timeline: scroll(y);
     }
         header > a > img {
-            width: 30vw;
-            width: 30svw;
+            /* logo fills to occupy div */
+            width: 100%;
             height: auto;
         }
     .headerItems {
+        /* inline flex on both sides each occupying a quater of the width (at least) the 2 titles within are placed on horizontal opposite ends */
         display: inherit;
         justify-content: space-between;
         height: 60px;
@@ -81,25 +94,31 @@ header {
         padding: 0;
     }
         .headerItems > li{
+            /* removes all li enemnt styling */
             all: unset;
         }
         .headerItems > li > a:hover,
         .headerItems > li > a:focus {
+            /* go pink when hovered */
             color: var(--SecondaryAccent);
         }
             .headerItems > li > a {
+                /* font size depending on width of device (automatically adjustable) */
                 font-size: 2.7vw;
                 color: var(--PrimaryAccent);
+                /* the webkit stroke didnt work as planned so i used text shadows */
                 text-shadow: 2px 2px 0px var(--MainBG),
                              -2px 2px 0px var(--MainBG),
                              -2px 0px 0px var(--MainBG),
                              2px 0px 0px var(--MainBG),
-                             2px -2px 0px var(--MainBG),
-                             -2px -2px 0px var(--MainBG);
+                             2px -2px 0px var(--MainBG),    /* t-top m-middle b-bottom | l-left r-right */
+                             -2px -2px 0px var(--MainBG); /* tl - tr - ml - mr - bl - bl*/
                 text-underline-offset: 6px;
                 padding: 5px;
             }
 header::before, header::after {
+    /* these are the background that show up when scrolling down, 
+    using two psuedo elements beacause borders dont follow clip path*/
     content: "";
 
     width: inherit;
@@ -109,6 +128,7 @@ header::before, header::after {
     background: var(--TextColour);
     position: absolute;
     top: -100px;
+    /* clips pseudoelement(s) into a shield like shape */
     clip-path: polygon(0% 0%, 100% 0%, 100% 90%, 50% 100%, 0% 90%);
 
     box-shadow: inset 0 0 15px var(--MainBG);
@@ -116,6 +136,7 @@ header::before, header::after {
                animation-timeline: scroll(y);
 }
 header::after {
+    /* behind the other pseudoelement and lower and also black to give impression of a border */
     z-index: -2;
 
     background: black;
@@ -124,8 +145,7 @@ header::after {
 
 main, section {    
     margin: 0;
-
-    height: auto;
+    /* each section extents to the size of the screen */
     height: 100vh;
     height: 100svh;
     overflow: hidden;
@@ -133,14 +153,15 @@ main, section {
     box-shadow: inset 0 -3px 100px black,
                 inset 0 3px 100px black;
 }
-    section > hr {
-        /* all: unset; */
+    section > hr { 
+        /* hr elements are now a gradient line of the sites colors */
         width: 100%;
         height: 3px;
         background-image: linear-gradient(to right, #00000000 3%, #66CED6 30%, #E26D8A 40%, #E26D8A 60%, #66CED6 70%, #00000000 97%);
         border: none;
     }
-    section > h2 {            
+    section > h2 {         
+           /* styling for the miniheadings on each page save the main (i regard the image there as the main heading1)*/
         display: flex;
         justify-content: space-between;
 
@@ -156,7 +177,7 @@ main, section {
                     -5px 0px 0px black,
                     5px 0px 0px black,
                     5px -5px 0px black,
-                    -5px -5px 0px black;
+                    -5px -5px 0px black; /* previously mentions stroke hack */
         color: var(--PrimaryAccent);
     }
         section > h2 > span {
@@ -164,11 +185,13 @@ main, section {
         }
 
 main {
+    /* i initially styled the repeat customer to only appear in main hence the styling */
     display: flex;
     justify-content: space-between;
     align-items: end;
 }
     main > img {
+        /* background image for main only */
         position: absolute;
         filter: blur(5px);
         height: 100vh;
@@ -177,27 +200,31 @@ main {
         min-width: 100svw;
     }
     main > address {
+        /* the gif and address */
         z-index: 10;
         display: inline-flex;
     }
         main > address > .AnimGif {
+            /* resizes based on screen sizing */
             height: 40vh;
             height: 40svh;
             width: auto;
             padding: 2vh;
-            padding-right: 10px;
         }
         main > address > div {
+            /* only top border with a gradient */
             background: linear-gradient(to right, #00000000 0%, #23232385 15%, #232323 50%, #23232385 85%, #00000000 100%);
             border: 1px solid;
             border-image: linear-gradient(to right, #00000000 0%,  #E6E6E6 10%, #E6E6E6 90%, #00000000 100%) 1;
             
+            /* basic sizing */
             max-width: 500px;
             padding-block: 10px;
             margin-block: auto;
             padding-inline: 24px;
         }
         main > address > div > p {
+            /* if ever text is too large add three dots to end */
             text-overflow: ellipsis;
             overflow: hidden;
             color: var(--SecondaryAccent);
@@ -208,6 +235,7 @@ main {
                 color: var(--TextColour);
             }
     main > .RepeatCustomer {
+            /*  */
             position: fixed;
             display: inline-flex;
             gap: 0.8vw;
@@ -838,9 +866,6 @@ main {
             }
 }
 @media (max-width: 460px) {
-    #Cursor {
-        display: none;
-    }
     .AnimatedBG {
         z-index: -100;
         background-image: linear-gradient(135deg, var(--MainBG) 30%, black);
@@ -859,14 +884,12 @@ main {
             all: unset;
             margin-top: 50vh;
             margin-top: 50svh;
+            width: 60vw;
+            width: 60svw;
             animation: AdjustLogo linear;
             animation-timeline: scroll(y);
         }
             header > a > img {
-                width: 60vw;
-                width: 60svw;
-                align-self: center;
-                height: auto;
                 z-index: 100;
             }
         .headerItems {
