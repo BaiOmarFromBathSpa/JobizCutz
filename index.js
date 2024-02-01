@@ -19,12 +19,14 @@ function HamburgerToggle() {
 
     if (HeaderStatus == "none") {
         HamburgerBtn.setAttribute("src", "./Assets/Imgs/Ham_Open.webp");
+        HamburgerBtn.setAttribute("alt", "Hamburger Menu Open - shows or hides menu");
         for (let index = 0; index < HeaderItems.length; index++) {
             HeaderItems[index].style.display = "flex"
         }
         HamburgerClosed = false;
     } else {
         HamburgerBtn.setAttribute("src", "./Assets/Imgs/Ham_Closed.webp");
+        HamburgerBtn.setAttribute("alt", "Hamburger Menu Closed - shows or hides menu");
         for (let index = 0; index < HeaderItems.length; index++) {
             HeaderItems[index].style.display = "none"
         }
